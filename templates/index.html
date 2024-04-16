@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container
+    {
+        display: flex;
+        justify-content: center;
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <form action="{{ url_for('predict')}}" method="post">
+            <label for="userid">UserId</label><br>
+            <input type="text" id="userid" name="userid">
+            <br>
+            <br>
+
+           
+            <label for="Gender">Gender</label>
+
+            <input type="radio" id="male" name="Gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="Gender" value="female">
+            <label for="female">female</label><br>
+
+            <label for="Age">Age</label><br>
+            <input type="text" id="Age" name="Age" placeholder="Age in yrs.">
+            <br>
+            <br>
+
+            <label for="Height">Height </label><br>
+            <input type="text" id="Height" name="Height" placeholder="Height in cm">
+            <br>
+            <br>
+
+            <label for="Weight">Weight</label><br>
+            <input type="text" id="Weight" name="Weight" placeholder="Weight in Kg">
+            <br>
+            <br>
+
+            <label for="Duration">Duration </label><br>
+            <input type="text" id="Duration" name="Duration" placeholder="Duration in minutes">
+            <br>
+            <br>
+
+            <label for="Heart_Rate">Heart Rate</label><br>
+            <input type="text" id="Heart_Rate" name="Heart_Rate" placeholder="Beats per Minute(BPM)">
+            <br>
+            <br>
+
+            <label for="Body_Temp">Body Temp</label><br>
+            <input type="text" id="Body_Temp" name="Body_Temp" placeholder="Temp. in degree celcius">
+            <br>
+            <br>
+
+            <input type="submit">
+
+
+
+            {{ prediction_text }}
+        </form>
+
+        <br>
+        <br>
+
+        
+    </div>
+
+</body>
+
+</html>
