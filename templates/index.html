@@ -1,80 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calories Burnt Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form > div {
+            margin-bottom: 10px;
+        }
+
+        .form label {
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .submit input {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit input:hover {
+            background-color: #0056b3;
+        }
+
+        .ans {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #007bff;
+        }
+    </style>
 </head>
-<style>
-    .container
-    {
-        display: flex;
-        justify-content: center;
-        border: 1px solid black;
-    }
-</style>
-
 <body>
-    <h1> Calories Burnt Calculator
-    <div class="container">
-        <form action="{{ url_for('predict')}}" method="post">
-            <label for="userid">UserId</label><br>
-            <input type="text" id="userid" name="userid">
-            <br>
-            <br>
-
-           
-            <label for="Gender">Gender</label>
-
-            <input type="radio" id="male" name="Gender" value="male">
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="Gender" value="female">
-            <label for="female">female</label><br>
-
-            <label for="Age">Age</label><br>
-            <input type="text" id="Age" name="Age" placeholder="Age in yrs.">
-            <br>
-            <br>
-
-            <label for="Height">Height </label><br>
-            <input type="text" id="Height" name="Height" placeholder="Height in cm">
-            <br>
-            <br>
-
-            <label for="Weight">Weight</label><br>
-            <input type="text" id="Weight" name="Weight" placeholder="Weight in Kg">
-            <br>
-            <br>
-
-            <label for="Duration">Duration </label><br>
-            <input type="text" id="Duration" name="Duration" placeholder="Duration in minutes">
-            <br>
-            <br>
-
-            <label for="Heart_Rate">Heart Rate</label><br>
-            <input type="text" id="Heart_Rate" name="Heart_Rate" placeholder="Beats per Minute(BPM)">
-            <br>
-            <br>
-
-            <label for="Body_Temp">Body Temp</label><br>
-            <input type="text" id="Body_Temp" name="Body_Temp" placeholder="Temp. in degree celcius">
-            <br>
-            <br>
-
-            <input type="submit">
-
-
-
-            {{ prediction_text }}
-        </form>
-
-        <br>
-        <br>
-
-        
+    <div class="header">
+        <h1>Calories Burnt Calculator</h1>
     </div>
-
+    <div class="container">
+        <form action="{{ url_for('predict')}}" method="post" class="form">
+            <div class="userid">
+                <label for="userid">UserId</label>
+                <input type="text" id="userid" name="userid">
+            </div>
+            <div class="gender">
+                <label for="Gender">Gender</label>
+                <input type="radio" id="male" name="Gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="Gender" value="female">
+                <label for="female">Female</label>
+            </div>
+            <div class="age">
+                <label for="Age">Age</label>
+                <input type="text" id="Age" name="Age" placeholder="Age in years">
+            </div>
+            <div class="height">
+                <label for="Height">Height</label>
+                <input type="text" id="Height" name="Height" placeholder="Height in cm">
+            </div>
+            <div class="weight">
+                <label for="Weight">Weight</label>
+                <input type="text" id="Weight" name="Weight" placeholder="Weight in Kg">
+            </div>
+            <div class="dur">
+                <label for="Duration">Duration</label>
+                <input type="text" id="Duration" name="Duration" placeholder="Duration in minutes">
+            </div>
+            <div class="heart">
+                <label for="Heart_Rate">Heart Rate</label>
+                <input type="text" id="Heart_Rate" name="Heart_Rate" placeholder="Beats per Minute (BPM)">
+            </div>
+            <div class="body-temp">
+                <label for="Body_Temp">Body Temp</label>
+                <input type="text" id="Body_Temp" name="Body_Temp" placeholder="Temp. in degree Celsius">
+            </div>
+            <div class="submit">
+                <input type="submit">
+            </div>
+            <div>
+            </div>
+            <div class="ans">
+                Calories-burnt:{{ prediction_text }}
+            </div>
+        </form>
+    </div>
 </body>
-
 </html>
