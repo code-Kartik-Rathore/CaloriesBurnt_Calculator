@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calories Burnt Calculator</title>
     <style>
+        *
+        {
+            font-family: math;
+        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
+            background: linear-gradient(to bottom, #1a1a1a, #0e1338); /* Add gradient here */
             color: #fff;
             margin: 0;
             padding: 0;
         }
 
         .header {
-            background-color: #333;
+            background: linear-gradient(to bottom, #000000, #2c2b2d);
             color: #fff;
             padding: 20px;
             text-align: center;
             margin-bottom: 20px;
+            box-shadow: 2px 2px 20px 1px black;
         }
 
         .container {
             margin: 0 auto;
             max-width: 400px;
             padding: 20px;
-            background-color: #444;
+            background : linear-gradient(to bottom, #19132a, #3f3f3f);
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 1px 1px 48px 6px rgb(0 0 0 / 97%);
         }
 
         .form {
@@ -35,7 +41,7 @@
             flex-direction: column;
         }
 
-        .form > div {
+        .form>div {
             margin-bottom: 10px;
         }
 
@@ -63,9 +69,16 @@
             font-weight: bold;
             text-align: center;
             color: #007bff;
+            font-size: 20px;
+        }
+        .input
+        {
+            padding-left: 147px;
+            padding-right: 73px;
         }
     </style>
 </head>
+
 <body>
     <div class="header">
         <h1>Calories Burnt Calculator</h1>
@@ -74,7 +87,7 @@
         <form action="{{ url_for('predict')}}" method="post" class="form">
             <div class="userid">
                 <label for="userid">UserId</label>
-                <input type="text" id="userid" name="userid">
+                <input type="text" id="userid" name="userid" class="input">
             </div>
             <div class="gender">
                 <label for="Gender">Gender</label>
@@ -85,27 +98,27 @@
             </div>
             <div class="age">
                 <label for="Age">Age</label>
-                <input type="text" id="Age" name="Age" placeholder="Age in years">
+                <input type="text" id="Age" name="Age" placeholder="Age in years" class="input">
             </div>
             <div class="height">
                 <label for="Height">Height</label>
-                <input type="text" id="Height" name="Height" placeholder="Height in cm">
+                <input type="text" id="Height" name="Height" placeholder="Height in cm" class="input">
             </div>
             <div class="weight">
                 <label for="Weight">Weight</label>
-                <input type="text" id="Weight" name="Weight" placeholder="Weight in Kg">
+                <input type="text" id="Weight" name="Weight" placeholder="Weight in Kg" class="input">
             </div>
             <div class="dur">
                 <label for="Duration">Duration</label>
-                <input type="text" id="Duration" name="Duration" placeholder="Duration in minutes">
+                <input type="text" id="Duration" name="Duration" placeholder="Duration in minutes" class="input">
             </div>
             <div class="heart">
                 <label for="Heart_Rate">Heart Rate</label>
-                <input type="text" id="Heart_Rate" name="Heart_Rate" placeholder="Beats per Minute (BPM)">
+                <input type="text" id="Heart_Rate" name="Heart_Rate" placeholder="Beats per Minute (BPM)" class="input">
             </div>
             <div class="body-temp">
                 <label for="Body_Temp">Body Temp</label>
-                <input type="text" id="Body_Temp" name="Body_Temp" placeholder="Temp. in degree Celsius">
+                <input type="text" id="Body_Temp" name="Body_Temp" placeholder="Temp. in degree Celsius" class="input">
             </div>
             <div class="submit">
                 <input type="submit">
@@ -113,9 +126,10 @@
             <div>
             </div>
             <div class="ans">
-                Calories-burnt:{{ prediction_text }}
+                Calories-burnt:                       {{ prediction_text }}
             </div>
         </form>
     </div>
 </body>
+
 </html>
